@@ -30,7 +30,7 @@
                         tapping-term-ms = <200>;
                         bindings = <&kp W>, <&kp N2>;
                 };
-                E3: e_3 {
+                e3: e_3 {
                         label = "E or 3";
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
