@@ -268,33 +268,33 @@
                 compatible = "zmk,keymap";
                 alphas {
                         bindings = <
-                                &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &none
+                                &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &kp UP
                                 &kp tabcw &kp A &kp S &kp D &kp F &kp G  &kp H &kp J &kp K &kp L &kp SEMI &sqtdqt
-                                &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &commaangle &kp DOT &kp FSLH &none
+                                &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &commaangle &kp DOT &kp FSLH &kp DOWN
                                 &kp LALT &kp LGUI &lt 1 SPACE            &lt 2 BSPC &lt 3 RET &kp RCTRL
                         >;
                 };
                 numbers {
                         bindings = <
-                                &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &trans
+                                &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &none
                                 &trans &none &none &rect_full &rect_left &rect_right           &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
-                                &trans &none &none &none &move_app_left &move_app_right        &kp N1 &kp N2 &kp N3 &none &none &trans
+                                &trans &none &none &none &move_app_left &move_app_right        &kp N1 &kp N2 &kp N3 &none &none &none
                                 &trans &trans &trans                                           &kp DEL &trans &trans
                         >;
                 };
                 symbols {
                         bindings = <
-                                &kp TILDE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT         &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
+                                &kp TILDE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT         &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR &kp RPAR &none
                                 &trans &none &kp FSLH &autocurly &autosquare &autoparen       &kp RPAR &kp RBKT &kp RBRC &kp BSLH &kp UNDER &kp PLUS
-                                &trans &none &none &none &none &none                          &none &none &none &none &none &trans
+                                &trans &none &none &none &none &none                          &none &none &none &none &none &none
                                 &trans &trans &trans                                          &trans &trans &trans
                         >;
                 };
                 movement {
                         bindings = <
-                                &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &bt BT_CLR    &skip_word_left &kp PG_DN &kp PG_UP &skip_word_right &none &kp DEL 
+                                &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &bt BT_CLR    &skip_word_left &kp PG_DN &kp PG_UP &skip_word_right &none &none
                                 &trans &kp F5 &kp F6 &kp F7 &kp F8 &bt BT_NXT     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
-                                &trans &kp F9 &kp F10 &kp F11 &kp F12 &bt BT_PRV  &select_word &kp END &kp HOME &select_next_word &none &trans
+                                &trans &kp F9 &kp F10 &kp F11 &kp F12 &bt BT_PRV  &select_word &kp END &kp HOME &select_next_word &none &none
                                 &trans &trans &trans                              &trans &trans &trans
                         >;
                 }; 
