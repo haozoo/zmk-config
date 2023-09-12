@@ -8,12 +8,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/ {
-        // configuration
-        &caps_word {
-                continue-list = <UNDERSCORE MINUS>;
-        };
+&caps_word {
+        continue-list = <UNDERSCORE MINUS>;
+};
 
+/ {
         behaviors {
                 
                 // alphabet -> numbers tap dances 
