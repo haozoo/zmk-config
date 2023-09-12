@@ -95,7 +95,7 @@
                         tapping-term-ms = <200>;
                         bindings = <&kp H>, <&kp LEFT>;
                 };
-                jdown down {
+                jdown: down {
                         label = "J or Down";
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
