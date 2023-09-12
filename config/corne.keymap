@@ -383,7 +383,7 @@
                 movement {
                         bindings = <
                                 &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &bt BT_CLR    &skip_word_left &kp PG_DN &kp PG_UP &skip_word_right &none &kp DEL 
-                                &trans &kp F5 &kp F6 &kp F7 &kp F8 &bt a     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
+                                &trans &kp F5 &kp F6 &kp F7 &kp F8 &bt BT_NXT     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
                                 &trans &kp F9 &kp F10 &kp F11 &kp F12 &bt BT_PRV  &none &kp END &kp HOME &none &none &trans
                                 &trans &trans &trans                              &trans &trans &trans
                         >;
