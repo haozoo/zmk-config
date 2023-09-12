@@ -21,7 +21,7 @@
                         compatible = "zmk,behavior-mod-morph";
                         #binding-cells = <0>;
                         bindings = <&kp TAB>, <&caps_word>;
-                        mods = <(MOD_LCTRL|MOD_RCTRL)>;
+                        mods = <(MOD_LCTL|MOD_RCTL)>;
                 };
 
                 // graves escape
