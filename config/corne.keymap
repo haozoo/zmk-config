@@ -178,6 +178,7 @@
                 // snipping tool
                 snippingt: snipping_tool {
                         label = "Snipping tool";
+                        compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
                                 = <&macro_press &kp LGUI &kp LCTRL &kp LSFT>
@@ -187,6 +188,7 @@
                 };
                 arc_st: arc_snipping_tool {
                         label = "ARC snipping tool";
+                        compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
                                 = <&macro_press &kp LGUI &kp LSFT>
