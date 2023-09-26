@@ -174,6 +174,7 @@
                                 , <&macro_tap &kp LEFT>
                                 ;
                 };
+
                 // snipping tool
                 st: snipping_tool {
                         label = "Snipping tool";
@@ -195,6 +196,26 @@
                 };
 
                 // window management / navigation
+                cycle_tab: arc_cycle_tab {
+                        label = "Cycle tab arc";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LCTRL>
+                                , <&macro_tap &kp TAB>
+                                , <&macro_release &kp LCTRL>
+                                ;
+                };
+                cycle_space: arc_cycle_space {
+                        label = "Cycle space arc";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LGUI &kp LALT>
+                                , <&macro_tap &kp TAB>
+                                , <&macro_release &kp LGUI &kp LALT>
+                                ;
+                }
                 switch_windows: switch_windows {
                         label = "Switch_windows";
                         compatible = "zmk,behavior-macro";
@@ -328,8 +349,8 @@
                 numbers {
                         bindings = <
                                 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
-                                &trans &st &none &swap_main &swap_ccw &swap_cw                          &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
-                                &trans &arc_st &none &cycle_layout &decrease_main &enlarge_main         &kp N1 &kp N2 &kp N3 &none &none &none
+                                &trans &st &cycle_tab &swap_main &swap_ccw &swap_cw                     &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
+                                &trans &arc_st &cycle_space &cycle_layout &decrease_main &enlarge_main  &kp N1 &kp N2 &kp N3 &none &none &none
                                 &trans &trans &trans                                                    &trans &trans &trans
                         >;
                 };
