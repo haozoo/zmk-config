@@ -94,6 +94,20 @@
                         #binding-cells = <0>;
                         bindings = <&kp DQT>, <&m_double_quote>;
                 };
+
+                // navigation
+                pgdnend: pg_dn_or_end {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "Page down or END";
+                        #binding-cells = <0>;
+                        bindings = <&kp PG_DN>, <&kp END>;
+                };
+                pguphome: pg_up_or_home {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "Page up or HOME";
+                        #binding-cells = <0>;
+                        bindings = <&kp PG_UP> <&kp HOME>;
+                };
         };
 
         macros {
@@ -160,6 +174,25 @@
                                 , <&macro_tap &kp LEFT>
                                 ;
                 };
+                // snipping tool
+                st: snipping_tool {
+                        label = "Snipping tool";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LGUI &kp LCTRL &kp LSFT>
+                                , <&macro_tap &kp N4>
+                                , <&macro_release &kp LGUI &kp LCTRL &kp LSHFT>
+                                ;
+                };
+                arc_st: arc_snipping_tool {
+                        label = "ARC snipping tool";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LGUI &kp LSFT>
+                                , <&macro_tap &kp N2>
+                                , <&macro_release &kp LGUI &kp LSHFT>
+                                ;
+                };
 
                 // window management / navigation
                 switch_windows: switch_windows {
@@ -173,8 +206,8 @@
                                 , <&macro_release &kp LGUI>
                                 ;
                 };
-                rect_left: rect_left {
-                        label = "Rectangle left";
+                swap_ccw: amethyst_swap_countercw {
+                        label = "Amethyst swap counter clockwise";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -183,8 +216,8 @@
                                 , <&macro_release &kp LCTRL &kp LALT>
                                 ;
                 };
-                rect_right: rect_right {
-                        label = "Rectangle right";
+                swap_cw: amethyst_swap_cw {
+                        label = "Amethyst swap clockwise";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -193,8 +226,8 @@
                                 , <&macro_release &kp LCTRL &kp LALT>
                                 ;
                 };
-                rect_full: rect_full {
-                        label = "Rectangle full";
+                swap_main: amethyst_swap_main {
+                        label = "Amethyst swap focused with main";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -203,24 +236,34 @@
                                 , <&macro_release &kp LCTRL &kp LALT>
                                 ;
                 };
-                move_app_left: move_app_left {
-                        label = "Move app left";
+                enlarge_main: amethyst_enlarge_main {
+                        label = "Enlarge main window";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
                                 = <&macro_press &kp LGUI &kp LCTRL &kp LALT>
-                                , <&macro_tap &kp LEFT>
+                                , <&macro_tap &kp UP>
                                 , <&macro_release &kp LGUI &kp LCTRL &kp LALT>
                                 ;
                 };    
-                move_app_right: move_app_right {
-                        label = "Move app right";
+                decrease_main: amethyst_decrease_main {
+                        label = "Decrease main window";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
                                 = <&macro_press &kp LGUI &kp LCTRL &kp LALT>
-                                , <&macro_tap &kp RIGHT>
+                                , <&macro_tap &kp DOWN>
                                 , <&macro_release &kp LGUI &kp LCTRL &kp LALT>
+                                ;
+                };
+                cycle_layout: amethyst_cycle_layout {
+                        label = "Amethyst swap layout";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LCTRL &kp LALT>
+                                , <&macro_tap &kp UP>
+                                , <&macro_release &kp LCTRL &kp LALT>
                                 ;
                 };
 
@@ -276,7 +319,7 @@
                 compatible = "zmk,keymap";
                 alphas {
                         bindings = <
-                                &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &none
+                                &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &kp DEL
                                 &tabcw &kp A &kp S &kp D &kp F &kp G     &kp H &kp J &kp K &kp L &kp SEMI &sqtdqt
                                 &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &commaangle &kp DOT &kp FSLH &none
                                 &kp LALT &kp LGUI &lt 1 SPACE            &lt 2 BSPC &lt 3 RET &kp RCTRL
@@ -284,10 +327,10 @@
                 };
                 numbers {
                         bindings = <
-                                &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
-                                &trans &none &none &rect_full &rect_left &rect_right           &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
-                                &trans &none &none &none &move_app_left &move_app_right        &kp N1 &kp N2 &kp N3 &none &none &none
-                                &trans &trans &trans                                           &trans &trans &trans
+                                &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
+                                &trans &st &none &swap_main &swap_ccw &swap_cw                          &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
+                                &trans &arc_st &none &cycle_layout &decrease_main &enlarge_main         &kp N1 &kp N2 &kp N3 &none &none &none
+                                &trans &trans &trans                                                    &trans &trans &trans
                         >;
                 };
                 symbols {
@@ -300,10 +343,10 @@
                 };
                 movement {
                         bindings = <
-                                &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &bt BT_CLR    &skip_word_left &kp PG_DN &kp PG_UP &skip_word_right &none &none
-                                &trans &kp F5 &kp F6 &kp F7 &kp F8 &bt BT_NXT     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
-                                &trans &kp F9 &kp F10 &kp F11 &kp F12 &bt BT_PRV  &select_word &kp END &kp HOME &select_next_word &none &none
-                                &trans &trans &trans                              &trans &trans &trans
+                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pg_dn_or_end &pg_up_or_home &skip_word_right &none &none
+                                &trans &none &none &none &none &bt BT_NXT       &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
+                                &trans &none &none &none &none &bt BT_PRV       &select_word &none &none &select_next_word &none &none
+                                &trans &trans &trans                            &trans &trans &trans
                         >;
                 }; 
         };
