@@ -215,7 +215,7 @@
                                 , <&macro_tap &kp TAB>
                                 , <&macro_release &kp LGUI &kp LALT>
                                 ;
-                }
+                };
                 switch_windows: switch_windows {
                         label = "Switch_windows";
                         compatible = "zmk,behavior-macro";
