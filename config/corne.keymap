@@ -106,7 +106,7 @@
                         compatible = "zmk,behavior-tap-dance";
                         label = "Page up or HOME";
                         #binding-cells = <0>;
-                        bindings = <&kp PG_UP> <&kp HOME>;
+                        bindings = <&kp PG_UP>, <&kp HOME>;
                 };
         };
 
@@ -320,7 +320,7 @@
                 alphas {
                         bindings = <
                                 &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &kp DEL
-                                &tabcw &kp A &kp S &kp D &kp F &kp G     &kp H &kp J &kp K &kp L &kp SEMI &sqtdqt
+                                &kp TAB &kp A &kp S &kp D &kp F &kp G     &kp H &kp J &kp K &kp L &kp SEMI &sqtdqt
                                 &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &commaangle &kp DOT &kp FSLH &none
                                 &kp LALT &kp LGUI &lt 1 SPACE            &lt 2 BSPC &lt 3 RET &kp RCTRL
                         >;
