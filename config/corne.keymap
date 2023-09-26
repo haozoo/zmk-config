@@ -37,9 +37,26 @@
                         compatible = "zmk,behavior-mod-morph";
                         label = "Escape or Graves";
                         #binding-cells = <0>;
-                        bindings = <&kp ESC>, <&switch_windows>;
-                        mods = <(MOD_LGUI|MOD_RGUI)>;
+                        bindings = <&kp ESC>, <&kp GRAVE>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
+
+                // graves escape
+                nextts: next_tab_space {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "Next tab or space";
+                        #binding-cells = <0>;
+                        bindings = <&next_tab>, <&next_space>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                prevts: prev_tab_space {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "Prev tab or space";
+                        #binding-cells = <0>;
+                        bindings = <&prev_tab>, <&prev_space>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+
 
                 sqtdqt: sqt_dqt {
                         compatible = "zmk,behavior-mod-morph";
@@ -198,35 +215,44 @@
                 };
 
                 // window management / navigation
-                cycle_tab: arc_cycle_tab {
-                        label = "Cycle tab arc";
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        bindings
-                                = <&macro_press &kp LCTRL>
-                                , <&macro_tap &kp TAB>
-                                , <&macro_release &kp LCTRL>
-                                ;
-                };
-                cycle_space: arc_cycle_space {
-                        label = "Cycle space arc";
+                next_tab: arc_next_tab {
+                        label = "Cycle tab next arc";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
                                 = <&macro_press &kp LGUI &kp LALT>
-                                , <&macro_tap &kp TAB>
+                                , <&macro_tap &kp DOWN>
                                 , <&macro_release &kp LGUI &kp LALT>
                                 ;
                 };
-                switch_windows: switch_windows {
-                        label = "Switch_windows";
+                prev_tab: arc_prev_tab {
+                        label = "Cycle tab prev arc";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
-                                = <&macro_release &kp LGUI>
-                                , <&macro_press &kp LGUI>
-                                , <&macro_tap &kp TILDE>
-                                , <&macro_release &kp LGUI>
+                                = <&macro_press &kp LGUI &kp LALT>
+                                , <&macro_tap &kp UP>
+                                , <&macro_release &kp LGUI &kp LALT>
+                                ;
+                };
+                next_space: arc_next_space {
+                        label = "Cycle space next arc";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LGUI &kp LALT>
+                                , <&macro_tap &kp RIGHT>
+                                , <&macro_release &kp LGUI &kp LALT>
+                                ;
+                };
+                prev_space: arc_prev_space {
+                        label = "Cycle space prev arc";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LGUI &kp LALT>
+                                , <&macro_tap &kp LEFT>
+                                , <&macro_release &kp LGUI &kp LALT>
                                 ;
                 };
                 swap_ccw: amethyst_swap_countercw {
@@ -351,8 +377,8 @@
                 numbers {
                         bindings = <
                                 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
-                                &trans &snippingt &cycle_tab &swap_main &swap_ccw &swap_cw                     &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
-                                &trans &arc_st &cycle_space &cycle_layout &decrease_main &enlarge_main  &kp N1 &kp N2 &kp N3 &none &none &none
+                                &trans &snippingt &prevts &swap_main &swap_ccw &swap_cw                 &kp N4 &kp N5 &kp N6 &kp BSLH &kp MINUS &kp EQUAL
+                                &trans &arc_st &nextts &cycle_layout &decrease_main &enlarge_main       &kp N1 &kp N2 &kp N3 &none &none &none
                                 &trans &trans &trans                                                    &trans &trans &trans
                         >;
                 };
