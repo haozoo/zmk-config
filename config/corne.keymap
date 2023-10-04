@@ -17,7 +17,7 @@
 / {
         behaviors {
                 // General
-                td_media: tap_dance_media {
+                media: tap_dance_media {
                         compatible = "zmk,behavior-tap-dance";
                         label = "TAP_DANCE_MEDIA";
                         #binding-cells = <0>;
@@ -373,7 +373,7 @@
                 };
                 movement {
                         bindings = <
-                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &tdmedia &kp DEL 
+                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &media &kp DEL 
                                 &trans &none &none &none &none &bt BT_NXT       &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_VOL_UP &none
                                 &trans &none &none &none &none &bt BT_PRV       &select_word &none &none &select_next_word &kp C_VOL_DN &none
                                 &trans &trans &trans                            &trans &trans &trans
