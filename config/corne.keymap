@@ -17,6 +17,12 @@
 / {
         behaviors {
                 // General
+                td_media: tap_dance_media {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_MEDIA";
+                        #binding-cells = <0>;
+                        bindings = <&kp C_PLAY_PAUSE>, <&kp C_NEXT>, <&kp C_PREVIOUS>;
+                };
                 gresc: grave_escape {
                         compatible = "zmk,behavior-mod-morph";
                         label = "Escape or Graves";
@@ -367,9 +373,9 @@
                 };
                 movement {
                         bindings = <
-                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &none &kp DEL
-                                &trans &none &none &none &none &bt BT_NXT       &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
-                                &trans &none &none &none &none &bt BT_PRV       &select_word &none &none &select_next_word &none &none
+                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &tdmedia &kp DEL 
+                                &trans &none &none &none &none &bt BT_NXT       &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_VOL_UP &none
+                                &trans &none &none &none &none &bt BT_PRV       &select_word &none &none &select_next_word &kp C_VOL_DN &none
                                 &trans &trans &trans                            &trans &trans &trans
                         >;
                 };
