@@ -184,7 +184,7 @@
                                 , <&macro_release &kp LGUI &kp LCTRL &kp LSFT>
                                 ;
                 };
-                arc_st: arc_snipping_tool {
+                arcst: arc_snipping_tool {
                         label = "ARC snipping tool";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
@@ -361,13 +361,13 @@
                         bindings = <
                                 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
                                 &trans &snippingt &prevts &swap_main &swap_ccw &swap_cw                 &none &none &none &none &kp MINUS &kp EQUAL
-                                &trans &arc_st &nextts &cycle_layout &decrease_main &enlarge_main       &none &none &none &none &none &none
+                                &trans &arcst &nextts &cycle_layout &decrease_main &enlarge_main       &none &none &none &none &none &none
                                 &trans &trans &trans                                                    &trans &trans &trans
                         >;
                 };
                 movement {
                         bindings = <
-                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &none &none
+                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &none &kp DEL
                                 &trans &none &none &none &none &bt BT_NXT       &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
                                 &trans &none &none &none &none &bt BT_PRV       &select_word &none &none &select_next_word &none &none
                                 &trans &trans &trans                            &trans &trans &trans
