@@ -6,6 +6,7 @@
 
 #include "../src/base.dtsi"
 
+// corne keymap
 / {
   keymap {
     compatible = "zmk,keymap";
