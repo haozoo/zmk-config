@@ -9,8 +9,8 @@
   };
 #define AUTO(NAME, BINDINGS) \
   tap_auto_##NAME: tap_auto_##NAME { \
+      compatible = "zmk,behavior-macro"; \
       label: str(tap_auto_##NAME); \
-      compatible = "zmk,behavior-tap-dance"; \
       #binding-cells = <0>; \
       bindings = <BINDINGS>; \
   };
