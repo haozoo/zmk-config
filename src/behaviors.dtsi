@@ -90,22 +90,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Auto-completion Mod Morphs
-        sqtdqt: sqt_dqt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "autocompleting single or double quotes";
-            #binding-cells = <0>;
-            bindings = <&tap_auto_sqt>, <&tap_auto_dqt>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        commaangle: comma_angle {
-            compatible = "zmk,behavior-mod-morph";
-            label = "autocompleting comma or angle";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&tap_auto_lt>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         // Auto-completion Tap Dances
         AUTO(par, &kp LPAR, &m_parent)
         AUTO(bkt, &kp LBKT, &m_sqr_bracket)
@@ -113,5 +97,21 @@
         AUTO(sqt, &kp SQT, &m_single_quote)
         AUTO(dqt, &kp DQT, &m_double_quote)
         AUTO(lt, &kp LT, &m_angle_bracket)
+
+        // Auto-completion Mod Morphs
+        sqt_dqt: sqt_dqt {
+            label = "SQT_DQT";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&tap_auto_sqt>, <&tap_auto_dqt>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        comma_lt: comma_lt {
+            label = "COMMA_LT";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&tap_auto_lt>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 };
