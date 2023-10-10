@@ -1,3 +1,11 @@
+// auto-complete tapdance macros
+#define AUTO(NAME, KEY, MACRO) \
+  tap_auto_##NAME { \
+    compatible = "zmk,behavior-tap-dance"; \
+    #binding-cells = <0>; \
+    bindings = <KEY>, <MACRO>; \
+  };
+
 / {
     behaviors {
         // General
@@ -87,53 +95,23 @@
             compatible = "zmk,behavior-mod-morph";
             label = "autocompleting single or double quotes";
             #binding-cells = <0>;
-            bindings = <&autosqt>, <&autodqt>;
+            bindings = <&tap_auto_sqt>, <&tap_auto_dqt>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         commaangle: comma_angle {
             compatible = "zmk,behavior-mod-morph";
             label = "autocompleting comma or angle";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&autoangle>;
+            bindings = <&kp COMMA>, <&tap_auto_lt>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Auto-completion Tap Dances
-        autoparen: auto_paren {
-            compatible = "zmk,behavior-tap-dance";
-            label = "autocompleting parenthesis";
-            #binding-cells = <0>;
-            bindings = <&kp LPAR>, <&m_parent>;
-        };
-        autocurly: auto_curly {
-            compatible = "zmk,behavior-tap-dance";
-            label = "autocompleting curly braces";
-            #binding-cells = <0>;
-            bindings = <&kp LBRC>, <&m_crly_bracket>;
-        };
-        autosquare: auto_square {
-            compatible = "zmk,behavior-tap-dance";
-            label = "autocompleting square braces";
-            #binding-cells = <0>;
-            bindings = <&kp LBKT>, <&m_sqr_bracket>;
-        };
-        autoangle: auto_angle {
-            compatible = "zmk,behavior-tap-dance";
-            label = "autocompleting angled braces";
-            #binding-cells = <0>;
-            bindings = <&kp LT>, <&m_angle_bracket>;
-        };
-        autosqt: auto_single_quote {
-            compatible = "zmk,behavior-tap-dance";
-            label = "autocompleting double quote";
-            #binding-cells = <0>;
-            bindings = <&kp SQT>, <&m_single_quote>;
-        };
-        autodqt: auto_double_quote {
-            compatible = "zmk,behavior-tap-dance";
-            label = "autocompleting single quote";
-            #binding-cells = <0>;
-            bindings = <&kp DQT>, <&m_double_quote>;
-        };
+        AUTO(par, &kp LPAR, &m_parent)
+        AUTO(bkt, &kp LBKT, &m_sqr_bracket)
+        AUTO(brc, &kp LBRC, &m_crly_bracket)
+        AUTO(sqt, &kp SQT, &m_single_quote)
+        AUTO(dqt, &kp DQT, &m_double_quote)
+        AUTO(lt, &kp LT, &m_angle_bracket)
     };
 };
