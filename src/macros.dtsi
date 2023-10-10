@@ -1,231 +1,62 @@
-#define str(s) #s
-#define MACRO(NAME, BINDINGS, WAITMS, TAPMS) \
+#define MACRO(NAME, BINDINGS) \
   macro_##NAME: macro_##NAME { \
       compatible = "zmk,behavior-macro"; \
       label = str(macro_##NAME); \
       #binding-cells = <0>; \
-      wait-ms = <WAITMS>; \
-      tap-ms = <TAPMS>; \
-      bindings = <BINDINGS>; \
+      bindings = <BINDINGS> \
   };
+
+#define MACRO_AUTOCOMPLETE(NAME, LHS_BINDING, RHS_BINDING) \
+  macro_##NAME: macro_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(macro_auto_##NAME); \
+      #binding-cells = <0>; \
+      bindings = <&macro_tap #LHS_BINDING> \
+               , <&macro_tap #RHS_BINDING> \
+               , <&macro_tap &kp LEFT> \
+               ; \
+  };
+
+#define MACRO_MOD(NAME, BINDINGS, MODS) \
+  macro_##NAME: macro_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(macro_amethyst_##NAME); \
+      #binding-cells = <0>; \
+      bindings = <&macro_press MODS> \
+               , <&macro_tap BINDINGS> \
+               , <&macro_release MODS> \
+               ; \
+  };
+
+#define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MODS(str(amethyst_##NAME), BINDING, &kp LCTRL &kp LALT)
+#define MACRO_MOD_ARC(NAME, BINDING) MACRO_MODS(str(arc_##NAME), BINDING, &kp LGUI &kp LALT)
 
 / {
   macros {
-    // Auto-completion Macros
-    m_parent: parenthesis {
-      label = "autocompleting parenthesis";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-              = <&macro_tap &kp LPAR>
-              , <&macro_tap &kp RPAR>
-              , <&macro_tap &kp LEFT>
-              ;
-    };
-      m_sqr_bracket: square_brackets {
-              label = "autocompleting square brackets";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_tap &kp LBKT>
-                      , <&macro_tap &kp RBKT>
-                      , <&macro_tap &kp LEFT>
-                      ;
-      };
-      m_crly_bracket: curly_brackets {
-              label = "autocompleting curly brackets";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_tap &kp LBRC>
-                      , <&macro_tap &kp RBRC>
-                      , <&macro_tap &kp LEFT>
-                      ;
-      };
-      m_angle_bracket: angle_brackets {
-              label = "autocompleting angled brackets";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_release &kp LSFT>
-                      , <&macro_tap &kp LT>
-                      , <&macro_tap &kp GT>
-                      , <&macro_tap &kp LEFT>
-                      ;
-      };
-      m_single_quote: single_quotes {
-              label = "autocompleting single quotes";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_tap &kp SQT>
-                      , <&macro_tap &kp SQT>
-                      , <&macro_tap &kp LEFT>
-                      ;
-      };
-      m_double_quote: double_quotes {
-              label = "autocompleting double quotes";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_release &kp LSFT>
-                      , <&macro_tap &kp DQT>
-                      , <&macro_tap &kp DQT>
-                      , <&macro_tap &kp LEFT>
-                      ;
-      };
+    // auto-completion Macros
+    MACRO_AUTOCOMPLETE(par, &kp LPAR, &kp RPAR)
+    MACRO_AUTOCOMPLETE(bkt, &kp LBKT, &kp RBKT)
+    MACRO_AUTOCOMPLETE(brc, &kp LBRC, &kp RBRC)
+    MACRO_AUTOCOMPLETE(sqt, &kp SQT, &kp SQT)
+    MACRO_AUTOCOMPLETE(dqt, &kp DQT, &kp DQT)
+    MACRO_AUTOCOMPLETE(lgt, &kp LT, &kp GT)
 
-      // Snipping Tool Macros
-      macosst: macos_snipping_tool {
-              label = "MacOS snipping tool";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LCTRL &kp LSFT>
-                      , <&macro_tap &kp N4>
-                      , <&macro_release &kp LGUI &kp LCTRL &kp LSFT>
-                      ;
-      };
-      arcst: arc_snipping_tool {
-              label = "Arc snipping tool";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LSFT>
-                      , <&macro_tap &kp N2>
-                      , <&macro_release &kp LGUI &kp LSFT>
-                      ;
-      };
+    MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
+    MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 <&macro_release &kp LGUI &kp LSFT)
 
-      // Arc Macros
-      next_tab: arc_next_tab {
-              label = "cycle to next arc tab";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LALT>
-                      , <&macro_tap &kp DOWN>
-                      , <&macro_release &kp LGUI &kp LALT>
-                      ;
-      };
-      prev_tab: arc_prev_tab {
-              label = "cycle to previous arc tab";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LALT>
-                      , <&macro_tap &kp UP>
-                      , <&macro_release &kp LGUI &kp LALT>
-                      ;
-      };
-      next_space: arc_next_space {
-              label = "cycle to next arc space";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LALT>
-                      , <&macro_tap &kp RIGHT>
-                      , <&macro_release &kp LGUI &kp LALT>
-                      ;
-      };
-      prev_space: arc_prev_space {
-              label = "cycle to previous arc space";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LALT>
-                      , <&macro_tap &kp LEFT>
-                      , <&macro_release &kp LGUI &kp LALT>
-                      ;
-      };
+    MACRO_MOD_ARC(next_tab, &kp DOWN)
+    MACRO_MOD_ARC(next_spc, &kp RIGHT)
+    MACRO_MOD_ARC(prev_tab, &kp UP)
+    MACRO_MOD_ARC(prev_spc, &kp LEFT)
 
-      // Amethyst macros
-      swap_ccw: amethyst_swap_countercw {
-              label = "amethyst swap window counter clockwise";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LCTRL &kp LALT>
-                      , <&macro_tap &kp LEFT>
-                      , <&macro_release &kp LCTRL &kp LALT>
-                      ;
-      };
-      swap_cw: amethyst_swap_cw {
-              label = "amethyst swap window clockwise";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LCTRL &kp LALT>
-                      , <&macro_tap &kp RIGHT>
-                      , <&macro_release &kp LCTRL &kp LALT>
-                      ;
-      };
-      swap_main: amethyst_swap_main {
-              label = "amethyst swap focused with main";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LCTRL &kp LALT>
-                      , <&macro_tap &kp RET>
-                      , <&macro_release &kp LCTRL &kp LALT>
-                      ;
-      };
-      enlarge_main: amethyst_enlarge_main {
-              label = "amethyst enlarge focused window";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LCTRL &kp LALT>
-                      , <&macro_tap &kp UP>
-                      , <&macro_release &kp LGUI &kp LCTRL &kp LALT>
-                      ;
-      };    
-      decrease_main: amethyst_decrease_main {
-              label = "amethyst decrease focused window";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LGUI &kp LCTRL &kp LALT>
-                      , <&macro_tap &kp DOWN>
-                      , <&macro_release &kp LGUI &kp LCTRL &kp LALT>
-                      ;
-      };
-      cycle_layout: amethyst_cycle_layout {
-              label = "amethyst cycle layout";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LCTRL &kp LALT>
-                      , <&macro_tap &kp UP>
-                      , <&macro_release &kp LCTRL &kp LALT>
-                      ;
-      };
+    MACRO_AMETHYST(swap_cw, &kp RIGHT)
+    MACRO_AMETHYST(swap_ccw, &kp LEFT)
+    MACRO_AMETHYST(swap_main, &kp RET)
+    MACRO_AMETHYST(swap_layout, &kp LT)
+    MACRO_AMETHYST(increase_main, &kp UP)
+    MACRO_AMETHYST(decrease_main, &kp DOWN)
 
-      // Text Movement
-      select_word: select_word {
-              label = "select current word";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LALT>
-                      , <&macro_tap &kp LEFT>
-                      , <&macro_press &kp LSHFT>
-                      , <&macro_tap &kp RIGHT>
-                      , <&macro_release &kp LSHFT>
-                      , <&macro_release &kp LALT>
-                      ;
-      };
-      select_next_word: select_next_word {
-              label = "select next word";
-              compatible = "zmk,behavior-macro";
-              #binding-cells = <0>;
-              bindings
-                      = <&macro_press &kp LALT>
-                      , <&macro_press &kp LSHFT>
-                      , <&macro_tap &kp RIGHT>
-                      , <&macro_release &kp LSHFT>
-                      , <&macro_release &kp LALT>
-                      ;
-      };
+    MACRO(selword, &macro_press &kp LALT &macro_tap &kp LEFT &macro_press &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
+    MACRO(selnext, <&macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
   };
 };
