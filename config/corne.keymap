@@ -8,7 +8,7 @@
 
 / {     
         macros {
-                #include "macros.dtsi"
+                #include "../src/macros.dtsi"
         };
         keymap {
                 compatible = "zmk,keymap";
