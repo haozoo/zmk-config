@@ -28,8 +28,8 @@
                ; \
   };
 
-#define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MODS(str(amth_##NAME), BINDING, &kp LCTRL &kp LALT)
-#define MACRO_MOD_ARC(NAME, BINDING) MACRO_MODS(str(arc_##NAME), BINDING, &kp LGUI &kp LALT)
+#define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MOD(str(amth_##NAME), BINDING, &kp LCTRL &kp LALT)
+#define MACRO_MOD_ARC(NAME, BINDING) MACRO_MOD(str(arc_##NAME), BINDING, &kp LGUI &kp LALT)
 
 / {
   macros {
