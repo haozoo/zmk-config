@@ -6,7 +6,10 @@
 
 #include "../src/base.dtsi"
 
-/ {
+/ {     
+        macros {
+                #include "macros.dtsi"
+        };
         keymap {
                 compatible = "zmk,keymap";
                 alphas {
