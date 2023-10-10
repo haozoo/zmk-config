@@ -10,50 +10,85 @@
 
 #define HYP LS(LC(LA(LGUI)))
 
-&caps_word {
-        continue-list = <UNDERSCORE MINUS>;
-};
-
 / {
         behaviors {
                 // General
-                media: tap_dance_media {
+                media: airpods_media {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "TAP_DANCE_MEDIA";
+                        label = "airpods-like media key";
                         #binding-cells = <0>;
                         bindings = <&kp C_PLAY_PAUSE>, <&kp C_NEXT>, <&kp C_PREVIOUS>;
                 };
-                gresc: grave_escape {
-                        compatible = "zmk,behavior-mod-morph";
-                        label = "Escape or Graves";
-                        #binding-cells = <0>;
-                        bindings = <&kp ESC>, <&kp GRAVE>;
-                        mods = <(MOD_LSFT|MOD_RSFT)>;
-                };
                 pgdnend: pg_dn_or_end {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Page down or END";
+                        label = "page down or END";
                         #binding-cells = <0>;
                         bindings = <&kp PG_DN>, <&kp END>;
                 };
                 pguphome: pg_up_or_home {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Page up or HOME";
+                        label = "page up or HOME";
                         #binding-cells = <0>;
                         bindings = <&kp PG_UP>, <&kp HOME>;
                 };
+                gresc: grave_escape {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "escape or graves";
+                        #binding-cells = <0>;
+                        bindings = <&kp ESC>, <&kp GRAVE>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                backspace: backspace_letter_word {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "backspace letter or word";
+                        #binding-cells = <0>;
+                        bindings = <&kp BSPC>, <&kp LA(BSPC)>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                snipping: snipping_arc {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "generic snipping tool or arc snipping tool";
+                        #binding-cells = <0>;
+                        bindings = <&macosst>, <&arcst>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                
+                // Amethyst Mod Morphs
+                layouts: swithc_main_or_layout {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "switch main or layout";
+                        #binding-cells = <0>;
+                        bindings = <&swap_main>, <&cycle_layout>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+
+                amethystleft: amethyst_left {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "cycle or expand left";
+                        #binding-cells = <0>;
+                        bindings = <&swap_ccw>, <&decrease_main>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+                amethystright: amethyst_right {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "cycle or expand right";
+                        #binding-cells = <0>;
+                        bindings = <&swap_cw>, <&enlarge_main>;
+                        mods = <(MOD_LSFT|MOD_RSFT)>;
+                };
+
 
                 // Arc Mod Morphs
                 nextts: next_tab_space {
                         compatible = "zmk,behavior-mod-morph";
-                        label = "Next tab or space";
+                        label = "next arc tab or next arc space";
                         #binding-cells = <0>;
                         bindings = <&next_tab>, <&next_space>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
                 prevts: prev_tab_space {
                         compatible = "zmk,behavior-mod-morph";
-                        label = "Prev tab or space";
+                        label = "previous arc tab or previous arc space";
                         #binding-cells = <0>;
                         bindings = <&prev_tab>, <&prev_space>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -62,14 +97,14 @@
                 // Auto-completion Mod Morphs
                 sqtdqt: sqt_dqt {
                         compatible = "zmk,behavior-mod-morph";
-                        label = "Single or double quotes";
+                        label = "autocompleting single or double quotes";
                         #binding-cells = <0>;
                         bindings = <&autosqt>, <&autodqt>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
                 commaangle: comma_angle {
                         compatible = "zmk,behavior-mod-morph";
-                        label = "Comma or angle";
+                        label = "autocompleting comma or angle";
                         #binding-cells = <0>;
                         bindings = <&kp COMMA>, <&autoangle>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -78,37 +113,37 @@
                 // Auto-completion Tap Dances
                 autoparen: auto_paren {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Auto parenthesis";
+                        label = "autocompleting parenthesis";
                         #binding-cells = <0>;
                         bindings = <&kp LPAR>, <&m_parent>;
                 };
                 autocurly: auto_curly {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Auto curly braces";
+                        label = "autocompleting curly braces";
                         #binding-cells = <0>;
                         bindings = <&kp LBRC>, <&m_crly_bracket>;
                 };
                 autosquare: auto_square {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Auto square braces";
+                        label = "autocompleting square braces";
                         #binding-cells = <0>;
                         bindings = <&kp LBKT>, <&m_sqr_bracket>;
                 };
                 autoangle: auto_angle {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Auto angled braces";
+                        label = "autocompleting angled braces";
                         #binding-cells = <0>;
                         bindings = <&kp LT>, <&m_angle_bracket>;
                 };
                 autosqt: auto_single_quote {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Auto double quote";
+                        label = "autocompleting double quote";
                         #binding-cells = <0>;
                         bindings = <&kp SQT>, <&m_single_quote>;
                 };
                 autodqt: auto_double_quote {
                         compatible = "zmk,behavior-tap-dance";
-                        label = "Auto single quote";
+                        label = "autocompleting single quote";
                         #binding-cells = <0>;
                         bindings = <&kp DQT>, <&m_double_quote>;
                 };
@@ -117,7 +152,7 @@
         macros {
                 // Auto-completion Macros
                 m_parent: parenthesis {
-                        label = "Parenthesis";
+                        label = "autocompleting parenthesis";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -127,7 +162,7 @@
                                 ;
                 };
                 m_sqr_bracket: square_brackets {
-                        label = "Square brackets";
+                        label = "autocompleting square brackets";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -137,7 +172,7 @@
                                 ;
                 };
                 m_crly_bracket: curly_brackets {
-                        label = "Curly brackets";
+                        label = "autocompleting curly brackets";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -147,7 +182,7 @@
                                 ;
                 };
                 m_angle_bracket: angle_brackets {
-                        label = "Angled brackets";
+                        label = "autocompleting angled brackets";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -158,7 +193,7 @@
                                 ;
                 };
                 m_single_quote: single_quotes {
-                        label = "Single quotes";
+                        label = "autocompleting single quotes";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -168,7 +203,7 @@
                                 ;
                 };
                 m_double_quote: double_quotes {
-                        label = "Double quotes";
+                        label = "autocompleting double quotes";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -180,8 +215,8 @@
                 };
 
                 // Snipping Tool Macros
-                snippingt: snipping_tool {
-                        label = "Snipping tool";
+                macosst: macos_snipping_tool {
+                        label = "MacOS snipping tool";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -191,7 +226,7 @@
                                 ;
                 };
                 arcst: arc_snipping_tool {
-                        label = "ARC snipping tool";
+                        label = "Arc snipping tool";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -203,7 +238,7 @@
 
                 // Arc Macros
                 next_tab: arc_next_tab {
-                        label = "Cycle tab next arc";
+                        label = "cycle to next arc tab";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -213,7 +248,7 @@
                                 ;
                 };
                 prev_tab: arc_prev_tab {
-                        label = "Cycle tab prev arc";
+                        label = "cycle to previous arc tab";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -223,7 +258,7 @@
                                 ;
                 };
                 next_space: arc_next_space {
-                        label = "Cycle space next arc";
+                        label = "cycle to next arc space";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -233,7 +268,7 @@
                                 ;
                 };
                 prev_space: arc_prev_space {
-                        label = "Cycle space prev arc";
+                        label = "cycle to previous arc space";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -245,7 +280,7 @@
 
                 // Amethyst macros
                 swap_ccw: amethyst_swap_countercw {
-                        label = "Amethyst swap counter clockwise";
+                        label = "amethyst swap window counter clockwise";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -255,7 +290,7 @@
                                 ;
                 };
                 swap_cw: amethyst_swap_cw {
-                        label = "Amethyst swap clockwise";
+                        label = "amethyst swap window clockwise";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -265,7 +300,7 @@
                                 ;
                 };
                 swap_main: amethyst_swap_main {
-                        label = "Amethyst swap focused with main";
+                        label = "amethyst swap focused with main";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -275,7 +310,7 @@
                                 ;
                 };
                 enlarge_main: amethyst_enlarge_main {
-                        label = "Enlarge main window";
+                        label = "amethyst enlarge focused window";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -285,7 +320,7 @@
                                 ;
                 };    
                 decrease_main: amethyst_decrease_main {
-                        label = "Decrease main window";
+                        label = "amethyst decrease focused window";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -295,7 +330,7 @@
                                 ;
                 };
                 cycle_layout: amethyst_cycle_layout {
-                        label = "Amethyst swap layout";
+                        label = "amethyst cycle layout";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -306,28 +341,8 @@
                 };
 
                 // Text Movement
-                skip_word_left: skip_word_left {
-                        label = "Skip word left";
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        bindings
-                                = <&macro_press &kp LALT>
-                                , <&macro_tap &kp LEFT>
-                                , <&macro_release &kp LALT>
-                                ;
-                };    
-                skip_word_right: skip_word_right {
-                        label = "Skip word right";
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        bindings
-                                = <&macro_press &kp LALT>
-                                , <&macro_tap &kp RIGHT>
-                                , <&macro_release &kp LALT>
-                                ;
-                };
                 select_word: select_word {
-                        label = "Select word";
+                        label = "select current word";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -340,7 +355,7 @@
                                 ;
                 };
                 select_next_word: select_next_word {
-                        label = "Select next word";
+                        label = "select next word";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings
@@ -360,22 +375,22 @@
                                 &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &kp DEL
                                 &kp TAB &kp A &kp S &kp D &kp F &kp G     &kp H &kp J &kp K &kp L &kp SEMI &sqtdqt
                                 &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &commaangle &kp DOT &kp FSLH &kp HYP
-                                &kp LALT &kp LGUI &lt 1 SPACE            &lt 2 BSPC &lt 3 RET &kp RCTRL
+                                &kp LALT &kp LGUI &lt 1 SPACE            &lt 2 backspace &lt 3 RET &kp RCTRL
                         >;
                 };
                 numbers {
                         bindings = <
                                 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
-                                &trans &snippingt &prevts &swap_main &swap_ccw &swap_cw                 &none &none &none &none &kp MINUS &kp EQUAL
-                                &trans &arcst &nextts &cycle_layout &decrease_main &enlarge_main       &none &none &none &none &none &none
+                                &trans &snipping &prevts &layouts &amethyst_left &amethyst_right        &none &none &none &none &kp MINUS &kp EQUAL
+                                &trans &none &nextts &none &none &none                                  &none &none &none &none &none &none
                                 &trans &trans &trans                                                    &trans &trans &trans
                         >;
                 };
                 movement {
                         bindings = <
-                                &trans &none &none &none &none &bt BT_CLR       &skip_word_left &pgdnend &pguphome &skip_word_right &media &kp DEL 
-                                &trans &none &none &none &none &bt BT_NXT       &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_VOL_UP &none
-                                &trans &none &none &none &none &bt BT_PRV       &select_word &none &none &select_next_word &kp C_VOL_DN &none
+                                &trans &bt BT_CLR &none &none &none &none       &kp LA(LEFT) &pgdnend &pguphome &kp LA(RIGHT) &media &kp DEL 
+                                &trans &bt BT_NXT &none &none &none &none       &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_VOL_UP &none
+                                &trans &bt BT_PRV &none &none &none &none       &select_word &none &none &select_next_word &kp C_VOL_DN &none
                                 &trans &trans &trans                            &trans &trans &trans
                         >;
                 };
