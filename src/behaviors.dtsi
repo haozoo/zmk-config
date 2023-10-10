@@ -2,7 +2,7 @@
 #define str(s) #s
 #define AUTO(NAME, BINDINGS) \
     tap_auto_##NAME: tap_auto_##NAME { \
-        label: str(tap_auto_##NAME); \
+        label = str(tap_auto_##NAME); \
         compatible = "zmk,behavior-tap-dance"; \
         #binding-cells = <0>; \
         bindings = <BINDINGS>; \
