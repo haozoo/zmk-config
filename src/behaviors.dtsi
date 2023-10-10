@@ -11,7 +11,7 @@
 / {
     behaviors {
         // General
-        media: airpods_media {
+        media: airpods_mediaa {
             compatible = "zmk,behavior-tap-dance";
             label = "airpods-like media key";
             #binding-cells = <0>;
