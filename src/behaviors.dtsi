@@ -1,3 +1,5 @@
+#include "macros.dtsi"
+
 // auto-complete tapdance macros
 #define AUTO(NAME, KEY, MACRO) \
     tap_auto_##NAME: tap_auto_##NAME { \
