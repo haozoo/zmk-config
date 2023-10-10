@@ -38,11 +38,11 @@
                         bindings = <&kp ESC>, <&kp GRAVE>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
-                backspace: backspace_letter_word {
+                rhsthumb: backspace_letter_word {
                         compatible = "zmk,behavior-mod-morph";
                         label = "backspace letter or word";
                         #binding-cells = <0>;
-                        bindings = <&kp BSPC>, <&kp LA(BSPC)>;
+                        bindings = <&lt 2 BSPC>, <&lt 2 LA(BSPC)>;
                         mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
                 snipping: snipping_arc {
@@ -375,7 +375,7 @@
                                 &gresc &kp Q &kp W &kp E &kp R &kp T     &kp Y &kp U &kp I &kp O &kp P &kp DEL
                                 &kp TAB &kp A &kp S &kp D &kp F &kp G     &kp H &kp J &kp K &kp L &kp SEMI &sqtdqt
                                 &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &commaangle &kp DOT &kp FSLH &kp HYP
-                                &kp LALT &kp LGUI &lt 1 SPACE            &lt 2 backspace &lt 3 RET &kp RCTRL
+                                &kp LALT &kp LGUI &lt 1 SPACE            &rhsthumb &lt 3 RET &kp RCTRL
                         >;
                 };
                 numbers {
