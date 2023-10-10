@@ -57,6 +57,6 @@
     MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 &macro_release &kp LGUI &kp LSFT)
     
     MACRO(selword, &macro_press &kp LALT &macro_tap &kp LEFT &macro_press &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
-    MACRO(selnext, <&macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
+    MACRO(selnext, &macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
   };
 };
