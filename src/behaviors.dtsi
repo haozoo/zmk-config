@@ -1,5 +1,3 @@
-#include "macros.dtsi"
-
 // auto-complete tapdance macros
 #define str(s) #s
 #define AUTO(NAME, BINDINGS) \
@@ -95,7 +93,7 @@
         };
 
         // auto-completion tap dances
-        AUTO(par, &kp LPAR &m_parent)
+        AUTO(par, &kp LPAR &kp RPAR)
         AUTO(bkt, &kp LBKT &m_sqr_bracket)
         AUTO(brc, &kp LBRC &m_crly_bracket)
         AUTO(sqt, &kp SQT &m_single_quote)
