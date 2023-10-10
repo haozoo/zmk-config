@@ -11,6 +11,7 @@
 
 // MEH & HYPER keys
 #define MEH LS(LC(LALT))
+#define HYP LS(LC(LA(LGUI)))
 
 // behaviors constants
 #define TAPPING_TERM_MS 280
