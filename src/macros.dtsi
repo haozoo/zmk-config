@@ -39,24 +39,24 @@
     MACRO_AUTOCOMPLETE(brc, &kp LBRC, &kp RBRC)
     MACRO_AUTOCOMPLETE(sqt, &kp SQT, &kp SQT)
     MACRO_AUTOCOMPLETE(dqt, &kp DQT, &kp DQT)
-    MACRO_AUTOCOMPLETE(lgt, &kp LT, &kp GT)
+    MACRO_AUTOCOMPLETE(lt, &kp LT, &kp GT)
 
-    // MACRO_MOD_ARC(next_tab, &kp DOWN)
-    // MACRO_MOD_ARC(next_spc, &kp RIGHT)
-    // MACRO_MOD_ARC(prev_tab, &kp UP)
-    // MACRO_MOD_ARC(prev_spc, &kp LEFT)
-// 
-    // MACRO_AMETHYST(swap_cw, &kp RIGHT)
-    // MACRO_AMETHYST(swap_ccw, &kp LEFT)
-    // MACRO_AMETHYST(swap_main, &kp RET)
-    // MACRO_AMETHYST(swap_layout, &kp LT)
-    // MACRO_AMETHYST(increase_main, &kp UP)
-    // MACRO_AMETHYST(decrease_main, &kp DOWN)
-// 
-    // MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
-    // MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 <&macro_release &kp LGUI &kp LSFT)
-    // 
-    // MACRO(selword, &macro_press &kp LALT &macro_tap &kp LEFT &macro_press &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
-    // MACRO(selnext, <&macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
+     MACRO_MOD_ARC(next_tab, &kp DOWN)
+     MACRO_MOD_ARC(next_spc, &kp RIGHT)
+     MACRO_MOD_ARC(prev_tab, &kp UP)
+     MACRO_MOD_ARC(prev_spc, &kp LEFT)
+
+     MACRO_AMETHYST(swap_cw, &kp RIGHT)
+     MACRO_AMETHYST(swap_ccw, &kp LEFT)
+     MACRO_AMETHYST(swap_main, &kp RET)
+     MACRO_AMETHYST(swap_layout, &kp LT)
+     MACRO_AMETHYST(increase_main, &kp UP)
+     MACRO_AMETHYST(decrease_main, &kp DOWN)
+
+     MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
+     MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 <&macro_release &kp LGUI &kp LSFT)
+     
+     MACRO(selword, &macro_press &kp LALT &macro_tap &kp LEFT &macro_press &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
+     MACRO(selnext, <&macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
   };
 };
