@@ -9,14 +9,7 @@
       tap-ms = <TAPMS>; \
       bindings = <BINDINGS>; \
   };
-#define HDN 0
-#define APT 1
-#define NAV 2
-#define SYM 3
-#define HDNW 4
-#define APTW 5
-#define NAVW 6
-#define SYMW 7
+
 /* macro: */
 MACRO(nav, &macro_tap &kp K_CANCEL &macro_press &mo NAV &macro_pause_for_release &macro_release &mo NAV, 0, 0)
 MACRO(sym, &macro_tap &kp K_CANCEL &macro_press &mo SYM &macro_pause_for_release &macro_release &mo SYM, 0, 0)
