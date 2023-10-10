@@ -1,0 +1,26 @@
+// core ZMK includes
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+// layers constants
+#define L1 0
+#define L2 1
+#define Fn 2
+
+// MEH & HYPER keys
+#define MEH LS(LC(LALT))
+
+// behaviors constants
+#define TAPPING_TERM_MS 280
+#define QUICK_TAP_MS 175
+#define GLOBAL_QUICK_TAP_MS 150
+
+// combos constants
+#define COMBO_TERM_DEFAULT 30
+#define COMBO_QUICK_TAP_MS 100
+
+#include "behaviors.dtsi"
+#include "macros.dtsi"
+#include "combos.dtsi"
