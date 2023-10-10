@@ -11,8 +11,8 @@
       compatible = "zmk,behavior-macro"; \
       label = str(macro_auto_##NAME); \
       #binding-cells = <0>; \
-      bindings = <&macro_tap #LHS_BINDING> \
-               , <&macro_tap #RHS_BINDING> \
+      bindings = <&macro_tap LHS_BINDING> \
+               , <&macro_tap RHS_BINDING> \
                , <&macro_tap &kp LEFT> \
                ; \
   };
