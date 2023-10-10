@@ -11,7 +11,7 @@
 #include "../src/base.dtsi"
 
 
-{
+/ {
         keymap {
                 compatible = "zmk,keymap";
                 alphas {
