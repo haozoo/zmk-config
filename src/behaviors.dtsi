@@ -5,14 +5,17 @@
       #binding-cells = <0>; \
       bindings = <BINDINGS>; \
   };
-#define MOD_MORPH_SFT(NAME, BINDINGS, MODS) \
-  morph_##NAME: morph_##NAME { \
-      label = str(morph_##NAME); \
-      compatible = "zmk,behavior-mod-morph"; \
-      #binding-cells = <0>; \
-      bindings = <BINDINGS>; \
-      mods = <(MOD_LSFT|MOD_RSFT)>; \
-  };
+
+#define MOD_MORPH(NAME, BINDINGS, MODS) \
+morph_##NAME: morph_##NAME { \
+    label = str(morph_##NAME); \
+    compatible = "zmk,behavior-mod-morph"; \
+    #binding-cells = <0>; \
+    bindings = <BINDINGS>; \
+    mods = <(MODS)>; \
+};
+
+#define MOD_MORPH_SFT(NAME, BINDINGS) MOD_MORPH(NAME, BINDINGS, LSFT|RSFT)
 
 / {
   behaviors {
@@ -27,13 +30,13 @@
     TAP_DANCE(navup, &kp PG_UP &kp HOME)
     
     // amethyst mod-morphs
-    MOD_MORPH_SFT(amethyst_rhs, &macro_amethyst_swap_cw &macro_amethyst_increase_main)
-    MOD_MORPH_SFT(amethyst_lhs, &macro_amethyst_swap_ccw &macro_amethyst_decrease_main)
-    MOD_MORPH_SFT(amethyst_layout, &macro_amethyst_swap_main &macro_amethyst_swap_layout)
+    MOD_MORPH_SFT(amthrhs, &macro_amth_swap_cw &macro_amth_increase_main)
+    MOD_MORPH_SFT(amthlhs, &macro_amth_swap_ccw &macro_amth_decrease_main)
+    MOD_MORPH_SFT(amthlout, &macro_amth_swap_main &macro_amth_swap_layout)
 
     // arc mod-morphs
-    MOD_MORPH_SFT(arc_next, &macro_arc_next_tab &macro_arc_next_spc)
-    MOD_MORPH_SFT(arc_prev, &macro_arc_prev_tab &macro_arc_prev_spc)
+    MOD_MORPH_SFT(arcnext, &macro_arc_next_tab &macro_arc_next_spc)
+    MOD_MORPH_SFT(arcprev, &macro_arc_prev_tab &macro_arc_prev_spc)
 
     // auto-completion mod-morphs
     MOD_MORPH_SFT(auto_sqt_dqt, &tap_auto_sqt &tap_auto_dqt)
