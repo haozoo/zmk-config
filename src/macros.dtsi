@@ -1,15 +1,15 @@
 #define MACRO(NAME, BINDINGS) \
   macro_##NAME: macro_##NAME { \
-      compatible = "zmk,behavior-macro"; \
       label = str(macro_##NAME); \
+      compatible = "zmk,behavior-macro"; \
       #binding-cells = <0>; \
-      bindings = <BINDINGS> \
+      bindings = <BINDINGS>; \
   };
 
 #define MACRO_AUTOCOMPLETE(NAME, LHS_BINDING, RHS_BINDING) \
   macro_##NAME: macro_##NAME { \
-      compatible = "zmk,behavior-macro"; \
       label = str(macro_auto_##NAME); \
+      compatible = "zmk,behavior-macro"; \
       #binding-cells = <0>; \
       bindings = <&macro_tap LHS_BINDING> \
                , <&macro_tap RHS_BINDING> \
@@ -17,19 +17,19 @@
                ; \
   };
 
-#define MACRO_MOD(NAME, BINDINGS, MODS) \
+#define MACRO_MOD(NAME, BINDING, MODS) \
   macro_##NAME: macro_##NAME { \
-      compatible = "zmk,behavior-macro"; \
       label = str(macro_amethyst_##NAME); \
+      compatible = "zmk,behavior-macro"; \
       #binding-cells = <0>; \
       bindings = <&macro_press MODS> \
-               , <&macro_tap BINDINGS> \
+               , <&macro_tap BINDING> \
                , <&macro_release MODS> \
                ; \
   };
 
-#define AMACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MOD(str(amth_##NAME), BINDING, &kp LCTRL &kp LALT)
-#define AMACRO_MOD_ARC(NAME, BINDING) MACRO_MOD(str(arc_##NAME), BINDING, &kp LGUI &kp LALT)
+#define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MOD(str(amth_##NAME), BINDING, &kp LCTRL &kp LALT)
+#define MACRO_MOD_ARC(NAME, BINDING) MACRO_MOD(str(arc_##NAME), BINDING, &kp LGUI &kp LALT)
 
 / {
   macros {
@@ -41,16 +41,16 @@
     MACRO_AUTOCOMPLETE(dqt, &kp DQT, &kp DQT)
     MACRO_AUTOCOMPLETE(lt, &kp LT, &kp GT)
 
-    // MACRO_MOD_ARC(next_tab, &kp DOWN)
-    // MACRO_MOD_ARC(next_spc, &kp RIGHT)
-    // MACRO_MOD_ARC(prev_tab, &kp UP)
-    // MACRO_MOD_ARC(prev_spc, &kp LEFT)
-    // MACRO_AMETHYST(swap_cw, &kp RIGHT)
-    // MACRO_AMETHYST(swap_ccw, &kp LEFT)
-    // MACRO_AMETHYST(swap_main, &kp RET)
-    // MACRO_AMETHYST(swap_layout, &kp LT)
-    // MACRO_AMETHYST(increase_main, &kp UP)
-    // MACRO_AMETHYST(decrease_main, &kp DOWN)
+    MACRO_MOD_ARC(next_tab, &kp DOWN)
+    MACRO_MOD_ARC(next_spc, &kp RIGHT)
+    MACRO_MOD_ARC(prev_tab, &kp UP)
+    MACRO_MOD_ARC(prev_spc, &kp LEFT)
+    MACRO_AMETHYST(swap_cw, &kp RIGHT)
+    MACRO_AMETHYST(swap_ccw, &kp LEFT)
+    MACRO_AMETHYST(swap_main, &kp RET)
+    MACRO_AMETHYST(swap_layout, &kp LT)
+    MACRO_AMETHYST(increase_main, &kp UP)
+    MACRO_AMETHYST(decrease_main, &kp DOWN)
 
     MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
     MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 <&macro_release &kp LGUI &kp LSFT)
