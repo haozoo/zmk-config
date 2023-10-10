@@ -7,8 +7,6 @@
               ╰────────────╯ ╰────────────╯            */
 
 compatible = "zmk,combos";
-
-// copied (modified) from https://github.com/caksoylar/zmk-config
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
   combo_##NAME { \
     bindings = <BINDINGS>; \

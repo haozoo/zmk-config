@@ -1,119 +1,50 @@
-// auto-complete tapdance macros
-#define str(s) #s
-#define AUTO(NAME, BINDINGS) \
-    tap_auto_##NAME: tap_auto_##NAME { \
-        label = str(tap_auto_##NAME); \
-        compatible = "zmk,behavior-tap-dance"; \
-        #binding-cells = <0>; \
-        bindings = <BINDINGS>; \
-    };
+#define TAP_DANCE(NAME, BINDINGS) \
+  tap_##NAME: tap_##NAME { \
+      label = str(tap_##NAME); \
+      compatible = "zmk,behavior-tap-dance"; \
+      #binding-cells = <0>; \
+      bindings = <BINDINGS>; \
+  };
+#define MOD_MORPH_SFT(NAME, BINDINGS, MODS) \
+  morph_##NAME: morph_##NAME { \
+      label = str(morph_##NAME); \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <BINDINGS>; \
+      mods = <(MOD_LSFT|MOD_RSFT)>; \
+  };
 
 / {
-    behaviors {
-        // General
-        media: airpods_mediaa {
-            compatible = "zmk,behavior-tap-dance";
-            label = "airpods-like media key";
-            #binding-cells = <0>;
-            bindings = <&kp C_PLAY_PAUSE>, <&kp C_NEXT>, <&kp C_PREVIOUS>;
-        };
-        pgdnend: pg_dn_or_end {
-            compatible = "zmk,behavior-tap-dance";
-            label = "page down or END";
-            #binding-cells = <0>;
-            bindings = <&kp PG_DN>, <&kp END>;
-        };
-        pguphome: pg_up_or_home {
-            compatible = "zmk,behavior-tap-dance";
-            label = "page up or HOME";
-            #binding-cells = <0>;
-            bindings = <&kp PG_UP>, <&kp HOME>;
-        };
-        gresc: grave_escape {
-            compatible = "zmk,behavior-mod-morph";
-            label = "escape or graves";
-            #binding-cells = <0>;
-            bindings = <&kp ESC>, <&kp GRAVE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        rhsthumb: backspace_letter_word {
-            compatible = "zmk,behavior-mod-morph";
-            label = "backspace letter or word";
-            #binding-cells = <0>;
-            bindings = <&lt 2 BSPC>, <&lt 2 LA(BSPC)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        snipping: snipping_arc {
-            compatible = "zmk,behavior-mod-morph";
-            label = "generic snipping tool or arc snipping tool";
-            #binding-cells = <0>;
-            bindings = <&macosst>, <&arcst>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        
-        // Amethyst Mod Morphs
-        layouts: swithc_main_or_layout {
-            compatible = "zmk,behavior-mod-morph";
-            label = "switch main or layout";
-            #binding-cells = <0>;
-            bindings = <&swap_main>, <&cycle_layout>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+  behaviors {
+    // general mod-morphs
+    MOD_MORPH_SFT(gresc, &kp ESC &kp GRAVE)
+    MOD_MORPH_SFT(rthmb, &lt 2 LA(BSPC) &lt 2 BSPC)
+    MOD_MORPH_SFT(snipt, &macro_mac_st &macro_arc_st)
 
-        amethystleft: amethyst_left {
-            compatible = "zmk,behavior-mod-morph";
-            label = "cycle or expand left";
-            #binding-cells = <0>;
-            bindings = <&swap_ccw>, <&decrease_main>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        amethystright: amethyst_right {
-            compatible = "zmk,behavior-mod-morph";
-            label = "cycle or expand right";
-            #binding-cells = <0>;
-            bindings = <&swap_cw>, <&enlarge_main>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+    // navigation tap dances
+    TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT> &kp C_PREVIOUS>)
+    TAP_DANCE(navdn, &kp PG_DN &kp END)
+    TAP_DANCE(navup, &kp PG_UP &kp HOME)
+    
+    // amethyst mod-morphs
+    MOD_MORPH_SFT(amethyst_rhs, &macro_amethyst_swap_cw &macro_amethyst_increase_main)
+    MOD_MORPH_SFT(amethyst_lhs, &macro_amethyst_swap_ccw &macro_amethyst_decrease_main)
+    MOD_MORPH_SFT(amethyst_layout, &macro_amethyst_swap_main &macro_amethyst_swap_layout)
 
+    // arc mod-morphs
+    MOD_MORPH_SFT(arc_next, &macro_arc_next_tab &macro_arc_next_spc)
+    MOD_MORPH_SFT(arc_prev, &macro_arc_prev_tab &macro_arc_prev_spc)
 
-        // Arc Mod Morphs
-        nextts: next_tab_space {
-            compatible = "zmk,behavior-mod-morph";
-            label = "next arc tab or next arc space";
-            #binding-cells = <0>;
-            bindings = <&next_tab>, <&next_space>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        prevts: prev_tab_space {
-            compatible = "zmk,behavior-mod-morph";
-            label = "previous arc tab or previous arc space";
-            #binding-cells = <0>;
-            bindings = <&prev_tab>, <&prev_space>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+    // auto-completion mod-morphs
+    MOD_MORPH_SFT(auto_sqt_dqt, &tap_auto_sqt &tap_auto_dqt)
+    MOD_MORPH_SFT(auto_comma_lt, &kp COMMA &tap_auto_lt)
 
-        // auto-completion tap dances
-        AUTO(par, &kp LPAR &kp RPAR)
-        AUTO(bkt, &kp LBKT &m_sqr_bracket)
-        AUTO(brc, &kp LBRC &m_crly_bracket)
-        AUTO(sqt, &kp SQT &m_single_quote)
-        AUTO(dqt, &kp DQT &m_double_quote)
-        AUTO(lt, &kp LT &m_angle_bracket)
-
-        // auto-completion mod morphs
-        sqt_dqt: sqt_dqt {
-            label = "SQT_DQT";
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&tap_auto_sqt>, <&tap_auto_dqt>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        comma_lt: comma_lt {
-            label = "COMMA_LT";
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&tap_auto_lt>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-    };
+    // auto-completion tap dances
+    TAP_DANCE(auto_par, &kp LPAR &macro_auto_par)
+    TAP_DANCE(auto_bkt, &kp LBKT &macro_auto_bkt)
+    TAP_DANCE(auto_brc, &kp LBRC &macro_auto_brc)
+    TAP_DANCE(auto_sqt, &kp SQT &macro_auto_sqt)
+    TAP_DANCE(auto_dqt, &kp DQT &macro_auto_dqt)
+    TAP_DANCE(auto_lt, &kp LT &macro_auto_lt)
+  };
 };
