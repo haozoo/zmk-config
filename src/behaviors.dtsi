@@ -1,12 +1,12 @@
 #include "macros.dtsi"
 
 // auto-complete tapdance macros
-#define AUTO(NAME, KEY, MACRO) \
+#define AUTO(NAME, BINDINGS) \
     tap_auto_##NAME: tap_auto_##NAME { \
         label: str(tap_auto_##NAME); \
         compatible = "zmk,behavior-tap-dance"; \
         #binding-cells = <0>; \
-        bindings = <KEY>, <MACRO>; \
+        bindings = <BINDINGS>; \
     };
 
 / {
@@ -94,12 +94,12 @@
         };
 
         // auto-completion tap dances
-        AUTO(par, &kp LPAR, &m_parent)
-        AUTO(bkt, &kp LBKT, &m_sqr_bracket)
-        AUTO(brc, &kp LBRC, &m_crly_bracket)
-        AUTO(sqt, &kp SQT, &m_single_quote)
-        AUTO(dqt, &kp DQT, &m_double_quote)
-        AUTO(lt, &kp LT, &m_angle_bracket)
+        AUTO(par, &kp LPAR &m_parent)
+        AUTO(bkt, &kp LBKT &m_sqr_bracket)
+        AUTO(brc, &kp LBRC &m_crly_bracket)
+        AUTO(sqt, &kp SQT &m_single_quote)
+        AUTO(dqt, &kp DQT &m_double_quote)
+        AUTO(lt, &kp LT &m_angle_bracket)
 
         // auto-completion mod morphs
         sqt_dqt: sqt_dqt {
