@@ -1,10 +1,11 @@
 // auto-complete tapdance macros
 #define AUTO(NAME, KEY, MACRO) \
-  tap_auto_##NAME: tap_auto_##NAME { \
-    compatible = "zmk,behavior-tap-dance"; \
-    #binding-cells = <0>; \
-    bindings = <KEY>, <MACRO>; \
-  };
+    tap_auto_##NAME: tap_auto_##NAME { \
+        label: tap_auto_##NAME; \
+        compatible = "zmk,behavior-tap-dance"; \
+        #binding-cells = <0>; \
+        bindings = <KEY>, <MACRO>; \
+    };
 
 / {
     behaviors {
@@ -90,7 +91,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Auto-completion Tap Dances
+        // auto-completion tap dances
         AUTO(par, &kp LPAR, &m_parent)
         AUTO(bkt, &kp LBKT, &m_sqr_bracket)
         AUTO(brc, &kp LBRC, &m_crly_bracket)
@@ -98,7 +99,7 @@
         AUTO(dqt, &kp DQT, &m_double_quote)
         AUTO(lt, &kp LT, &m_angle_bracket)
 
-        // Auto-completion Mod Morphs
+        // auto-completion mod morphs
         sqt_dqt: sqt_dqt {
             label = "SQT_DQT";
             compatible = "zmk,behavior-mod-morph";
