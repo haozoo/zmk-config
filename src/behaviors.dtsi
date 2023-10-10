@@ -1,6 +1,6 @@
 // auto-complete tapdance macros
 #define AUTO(NAME, KEY, MACRO) \
-  tap_auto_##NAME { \
+  tap_auto_##NAME: tap_auto_##NAME { \
     compatible = "zmk,behavior-tap-dance"; \
     #binding-cells = <0>; \
     bindings = <KEY>, <MACRO>; \
