@@ -1,6 +1,7 @@
 #include "macros.dtsi"
 
 // auto-complete tapdance macros
+#define str(s) #s
 #define AUTO(NAME, BINDINGS) \
     tap_auto_##NAME: tap_auto_##NAME { \
         label: str(tap_auto_##NAME); \
