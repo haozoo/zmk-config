@@ -41,8 +41,8 @@
     // MOD_MORPH_SFT(arcprev, &macro_arc_prev_tab &macro_arc_prev_spc)
 
     // auto-completion mod-morphs
-    MOD_MORPH_SFT(auto_sqt_dqt, &tap_auto_sqt &tap_auto_dqt)
-    MOD_MORPH_SFT(auto_comma_lt, &kp COMMA &tap_auto_lt)
+    // MOD_MORPH_SFT(auto_sqt_dqt, &tap_auto_sqt &tap_auto_dqt)
+    // MOD_MORPH_SFT(auto_comma_lt, &kp COMMA &tap_auto_lt)
 
     // auto-completion tap dances
     // TAP_DANCE(auto_par, &kp LPAR &macro_auto_par)
