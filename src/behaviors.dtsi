@@ -9,13 +9,13 @@
   };
 
 #define MOD_MORPH(NAME, BINDINGS, MODS) \
-morph_##NAME: morph_##NAME { \
-    label = str(morph_##NAME); \
-    compatible = "zmk,behavior-mod-morph"; \
-    #binding-cells = <0>; \
-    bindings = <BINDINGS>; \
-    mods = <(MODS)>; \
-};
+  morph_##NAME: morph_##NAME { \
+      label = str(morph_##NAME); \
+      compatible = "zmk,behavior-mod-morph"; \
+      #binding-cells = <0>; \
+      bindings = <BINDINGS>; \
+      mods = <(MODS)>; \
+  };
 
 #define MOD_MORPH_SFT(NAME, BINDINGS) MOD_MORPH(NAME, BINDINGS, LSFT|RSFT)
 
