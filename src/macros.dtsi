@@ -33,7 +33,7 @@
 
 / {
   macros {
-    // auto-completion Macros
+    // auto-completion macros
     MACRO_AUTOCOMPLETE(auto_par, &kp LPAR, &kp RPAR)
     MACRO_AUTOCOMPLETE(auto_bkt, &kp LBKT, &kp RBKT)
     MACRO_AUTOCOMPLETE(auto_brc, &kp LBRC, &kp RBRC)
@@ -41,20 +41,25 @@
     MACRO_AUTOCOMPLETE(auto_dqt, &kp DQT, &kp DQT)
     MACRO_AUTOCOMPLETE(auto_lt, &kp LT, &kp GT)
 
+    // arc: gui + alt
     MACRO_MOD_ARC(arc_next_tab, &kp DOWN)
     MACRO_MOD_ARC(arc_next_spc, &kp RIGHT)
     MACRO_MOD_ARC(arc_prev_tab, &kp UP)
     MACRO_MOD_ARC(arc_prev_spc, &kp LEFT)
 
+    // amethyst: ctrl + alt
     MACRO_MOD_AMETHYST(amth_swap_cw, &kp RIGHT)
     MACRO_MOD_AMETHYST(amth_swap_ccw, &kp LEFT)
-    MACRO_MOD_AMETHYST(amth_swap_main, &kp RET)
+    MACRO_MOD_AMETHYST(amth_swap_main, &kp RET) 
     MACRO_MOD_AMETHYST(amth_swap_layout, &kp LT)
     MACRO_MOD_AMETHYST(amth_increase_main, &kp UP)
     MACRO_MOD_AMETHYST(amth_decrease_main, &kp DOWN)
 
-    MACRO_MOD(alfred, &kp SPACE, &kp LCTRL)
+    // simple general macros
+    MACRO_MOD(alfred, &kp SPACE, &kp LGUI)
+    MACRO_MOD(newtab, &kp T, &kp LGUI)
 
+    // complicated macros
     MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
     MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 &macro_release &kp LGUI &kp LSFT)
     

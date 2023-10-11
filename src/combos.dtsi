@@ -18,5 +18,6 @@
   combos {
     compatible = "zmk,combos";
     COMBO(alfred, &macro_alfred, 39 40, 0)
+    COMBO(newtab, &macro_newtab, 38 41, 0)
   };
 };
