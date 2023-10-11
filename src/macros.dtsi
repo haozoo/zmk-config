@@ -10,7 +10,7 @@
 
 #define MACRO_AUTOCOMPLETE(NAME, LHS_BINDING, RHS_BINDING) \
   macro_##NAME: macro_##NAME { \
-      label = str(macro_#NAME); \
+      label = str(macro_##NAME); \
       compatible = "zmk,behavior-macro"; \
       #binding-cells = <0>; \
       bindings = <&macro_tap LHS_BINDING> \
