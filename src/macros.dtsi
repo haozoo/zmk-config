@@ -30,8 +30,30 @@
                ; \
   };
 
-#define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MOD(NAME, BINDING, &kp LCTRL &kp LALT)
-#define MACRO_MOD_ARC(NAME, BINDING) MACRO_MOD(NAME, BINDING, &kp LGUI &kp LALT)
+#define MACRO_MOD_AMETHYST(NAME, BINDINGS) \
+  macro_##NAME: macro_##NAME { \
+      label = str(macro_##NAME); \
+      compatible = "zmk,behavior-macro"; \
+      #binding-cells = <0>; \
+      bindings = <&macro_press &kp LCTRL &kp LALT> \
+               , <&macro_tap BINDINGS> \
+               , <&macro_release &kp LCTRL &kp LALT> \
+               ; \
+  };  
+
+  #define MACRO_MOD_ARC(NAME, BINDING) \
+  macro_##NAME: macro_##NAME { \
+      label = str(macro_##NAME); \
+      compatible = "zmk,behavior-macro"; \
+      #binding-cells = <0>; \
+      bindings = <&macro_press &kp LGUI &kp LALT> \
+               , <&macro_tap BINDING> \
+               , <&macro_release &kp LGUI &kp LALT> \
+               ; \
+  };
+
+// #define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MOD(NAME, BINDING, &kp LCTRL &kp LALT)
+// #define MACRO_MOD_ARC(NAME, BINDING) MACRO_MOD(NAME, BINDING, &kp LGUI &kp LALT)
 
 / {
   macros {
