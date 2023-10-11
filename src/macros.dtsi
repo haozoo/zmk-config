@@ -1,5 +1,3 @@
-// test 
-
 #define MACRO(NAME, BINDINGS) \
   macro_##NAME: macro_##NAME { \
       label = str(macro_##NAME); \
