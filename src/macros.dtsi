@@ -30,40 +30,18 @@
                ; \
   };
 
-#define MACRO_MOD_AMETHYST(NAME, BINDINGS) \
-  macro_##NAME: macro_##NAME { \
-      label = str(macro_##NAME); \
-      compatible = "zmk,behavior-macro"; \
-      #binding-cells = <0>; \
-      bindings = <&macro_press &kp LCTRL &kp LALT> \
-               , <&macro_tap BINDINGS> \
-               , <&macro_release &kp LCTRL &kp LALT> \
-               ; \
-  };  
-
-  #define MACRO_MOD_ARC(NAME, BINDING) \
-  macro_##NAME: macro_##NAME { \
-      label = str(macro_##NAME); \
-      compatible = "zmk,behavior-macro"; \
-      #binding-cells = <0>; \
-      bindings = <&macro_press &kp LGUI &kp LALT> \
-               , <&macro_tap BINDING> \
-               , <&macro_release &kp LGUI &kp LALT> \
-               ; \
-  };
-
 #define MACRO_MOD_AMETHYST(NAME, BINDING) MACRO_MOD(NAME, BINDING, &kp LCTRL &kp LALT)
 #define MACRO_MOD_ARC(NAME, BINDING) MACRO_MOD(NAME, BINDING, &kp LGUI &kp LALT)
 
 / {
   macros {
     // auto-completion Macros
-    // MACRO_AUTOCOMPLETE(auto_par, &kp LPAR, &kp RPAR)
-    // MACRO_AUTOCOMPLETE(auto_bkt, &kp LBKT, &kp RBKT)
-    // MACRO_AUTOCOMPLETE(auto_brc, &kp LBRC, &kp RBRC)
-    // MACRO_AUTOCOMPLETE(auto_sqt, &kp SQT, &kp SQT)
-    // MACRO_AUTOCOMPLETE(auto_dqt, &kp DQT, &kp DQT)
-    // MACRO_AUTOCOMPLETE(auto_lt, &kp LT, &kp GT)
+    MACRO_AUTOCOMPLETE(auto_par, &kp LPAR, &kp RPAR)
+    MACRO_AUTOCOMPLETE(auto_bkt, &kp LBKT, &kp RBKT)
+    MACRO_AUTOCOMPLETE(auto_brc, &kp LBRC, &kp RBRC)
+    MACRO_AUTOCOMPLETE(auto_sqt, &kp SQT, &kp SQT)
+    MACRO_AUTOCOMPLETE(auto_dqt, &kp DQT, &kp DQT)
+    MACRO_AUTOCOMPLETE(auto_lt, &kp LT, &kp GT)
 
     // MACRO_MOD_ARC(arc_next_tab, &kp DOWN)
     // MACRO_MOD_ARC(arc_next_spc, &kp RIGHT)
