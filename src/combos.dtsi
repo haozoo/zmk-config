@@ -6,7 +6,6 @@
   ╰───────────╮ 37  38  39 │ │ 40  41  42 ╭───────────╯
               ╰────────────╯ ╰────────────╯            */
 
-compatible = "zmk,combos";
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
   combo_##NAME { \
     bindings = <BINDINGS>; \
