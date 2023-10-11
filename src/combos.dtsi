@@ -14,3 +14,10 @@ compatible = "zmk,combos";
     key-positions = <KEYPOS>; \
     layers = <LAYERS>; \
   };
+
+/ {
+  combos {
+    compatible = "zmk,combos";
+    COMBO(alfred, &macro_alfred, 39 40, 0)
+  };
+};

@@ -21,8 +21,8 @@
   behaviors {
     // general mod-morphs
     MOD_MORPH_SFT(gresc, &kp ESC &kp GRAVE)
-    MOD_MORPH_SFT(rthmb, &lt 2 LA(BSPC) &lt 2 BSPC)
-    MOD_MORPH_SFT(snipt, &macro_mac_st &macro_arc_st)
+    MOD_MORPH_SFT(rhsthumb, &lt 2 LA(BSPC) &lt 2 BSPC)
+    MOD_MORPH_SFT(snipping, &macro_mac_st &macro_arc_st)
 
     // navigation tap dances
     TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT &kp C_PREVIOUS)
