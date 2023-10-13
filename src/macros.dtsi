@@ -47,6 +47,14 @@
     MACRO_MOD_ARC(arc_prev_tab, &kp UP)
     MACRO_MOD_ARC(arc_prev_spc, &kp LEFT)
 
+    // arc
+    MACRO_MOD(arc_nav1, &kp 1, &kp LGUI)
+    MACRO_MOD(arc_nav2, &kp 2, &kp LGUI)
+    MACRO_MOD(arc_nav3, &kp 3, &kp LGUI)
+    MACRO_MOD(arc_nav4, &kp 4, &kp LGUI)
+    MACRO_MOD(arc_nav5, &kp 5, &kp LGUI)
+    MACRO_MOD(arc_nav6, &kp 6, &kp LGUI)
+
     // amethyst: ctrl + alt
     MACRO_MOD_AMETHYST(amth_swap_cw, &kp RIGHT)
     MACRO_MOD_AMETHYST(amth_swap_ccw, &kp LEFT)
@@ -57,13 +65,12 @@
 
     // simple general macros
     MACRO_MOD(alfred, &kp SPACE, &kp LGUI)
-    MACRO_MOD(newtab, &kp T, &kp LGUI)
 
     // complicated macros
     MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
     MACRO(arc_st, &macro_press &kp LGUI &kp LSFT &macro_tap &kp N2 &macro_release &kp LGUI &kp LSFT)
     
-    MACRO(selword, &macro_press &kp LALT &macro_tap &kp LEFT &macro_press &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
-    MACRO(selnext, &macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
+    // MACRO(selword, &macro_press &kp LALT &macro_tap &kp LEFT &macro_press &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
+    // MACRO(selnext, &macro_press &kp LALT &kp LSHFT &macro_tap &kp RIGHT &macro_release &kp LSHFT &kp LALT)
   };
 };

@@ -5,9 +5,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // layers constants
-#define L1 0
-#define L2 1
-#define Fn 2
+#define BASE 0
+#define NUM 1
+#define SYM 2
+#define NAV 3
 
 // MEH & HYPER keys
 #define MEH LS(LC(LALT))
