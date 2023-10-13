@@ -48,12 +48,12 @@
     MACRO_MOD_ARC(arc_prev_spc, &kp LEFT)
 
     // arc
-    MACRO_MOD(arc_nav1, &kp 1, &kp LGUI)
-    MACRO_MOD(arc_nav2, &kp 2, &kp LGUI)
-    MACRO_MOD(arc_nav3, &kp 3, &kp LGUI)
-    MACRO_MOD(arc_nav4, &kp 4, &kp LGUI)
-    MACRO_MOD(arc_nav5, &kp 5, &kp LGUI)
-    MACRO_MOD(arc_nav6, &kp 6, &kp LGUI)
+    MACRO_MOD(arc_nav1, &kp N1, &kp LGUI)
+    MACRO_MOD(arc_nav2, &kp N2, &kp LGUI)
+    MACRO_MOD(arc_nav3, &kp N3, &kp LGUI)
+    MACRO_MOD(arc_nav4, &kp N4, &kp LGUI)
+    MACRO_MOD(arc_nav5, &kp N5, &kp LGUI)
+    MACRO_MOD(arc_nav6, &kp N6, &kp LGUI)
 
     // amethyst: ctrl + alt
     MACRO_MOD_AMETHYST(amth_swap_cw, &kp RIGHT)
