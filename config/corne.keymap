@@ -38,8 +38,8 @@
     }; 
     movement {
       bindings = <
-        &trans &bt BT_CLR &none &none &none &morph_amthlout   &kp LA(LEFT) &tap_navdn &tap_navup &kp LA(RIGHT) &tap_media &kp DEL 
-        &trans &bt BT_NXT &none &none &none &morph_amthrhs    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp C_VOL_UP &none
+        &trans &bt BT_CLR &none &none &none &morph_amthlout   &tap_navup &kp LA(LEFT) &kp UP &kp LA(RIGHT) &tap_media &kp DEL 
+        &trans &bt BT_NXT &none &none &none &morph_amthrhs    &tap_navdn &kp LEFT &kp DOWN  &kp RIGHT &kp C_VOL_UP &none
         &trans &bt BT_PRV &none &none &none &morph_amthlhs    &none &none &none &none &kp C_VOL_DN &none
         &trans &trans &trans                                  &trans &trans &trans
       >;
