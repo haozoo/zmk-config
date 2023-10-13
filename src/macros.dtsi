@@ -65,6 +65,7 @@
 
     // simple general macros
     MACRO_MOD(alfred, &kp SPACE, &kp LGUI)
+    MACRO_MOD(newtab, &kp T, &kp LGUI)
 
     // complicated macros
     MACRO(mac_st, &macro_press &kp LGUI &kp LCTRL &kp LSFT &macro_tap &kp N4 &macro_release &kp LGUI &kp LCTRL &kp LSFT)
