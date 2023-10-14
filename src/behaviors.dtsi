@@ -18,31 +18,45 @@
 
 #define MOD_MORPH(NAME, BINDINGS, MODS) MOD_MORPH_ALL(NAME, BINDINGS, MODS, 0)
 #define MOD_MORPH_SFT(NAME, BINDINGS) MOD_MORPH(NAME, BINDINGS, MOD_LSFT|MOD_RSFT)
+#define MOD_MORPH_SFT_CONT(NAME, BINDINGS) MOD_MORPH_ALL(NAME, BINDINGS, MOD_LSFT|MOD_RSFT, MOD_LSFT|MOD_RSFT)
 
 / {
   behaviors {
     // general mod-morphs
     MOD_MORPH_SFT(gresc, &kp ESC &kp GRAVE)
     MOD_MORPH_SFT(rhsthumb, &lt NAV BSPC &lt NAV LA(BSPC))
-    MOD_MORPH_ALL(snipping, &macro_mac_st &macro_arc_st, MOD_LSFT|MOD_RSFT, MOD_LSFT|MOD_RSFT)
+    MOD_MORPH_SFT_CONT(snipping, &macro_mac_st &macro_arc_st, MOD_LSFT|MOD_RSFT, MOD_LSFT|MOD_RSFT)
+    
 
     // mod-enabled tap dances
     TAP_DANCE(clipboard, &kp LG(C) &kp HYP(C))
     MOD_MORPH(c, &kp C &tap_clipboard, MOD_LGUI|MOD_RGUI)
+
 
     // navigation tap dances
     TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT &kp C_PREVIOUS)
     TAP_DANCE(navdn, &kp PG_DN &kp END)
     TAP_DANCE(navup, &kp PG_UP &kp HOME)
     
+    // navigation mod-morphs
+    MOD_MORPH_SFT_CONT(nav1, &macro_arc_nav1 &kp HYP(N1))
+    MOD_MORPH_SFT_CONT(nav2, &macro_arc_nav2 &kp HYP(N2))
+    MOD_MORPH_SFT_CONT(nav3, &macro_arc_nav3 &kp HYP(N3))
+    MOD_MORPH_SFT_CONT(nav4, &macro_arc_nav4 &kp HYP(N4))
+    MOD_MORPH_SFT_CONT(nav5, &macro_arc_nav5 &kp HYP(N5))  
+    MOD_MORPH_SFT_CONT(nav6, &macro_arc_nav6 &kp HYP(N6))
+
+
     // amethyst mod-morphs
     MOD_MORPH_SFT(amthrhs, &macro_amth_swap_cw &macro_amth_increase_main)
     MOD_MORPH_SFT(amthlhs, &macro_amth_swap_ccw &macro_amth_decrease_main)
     MOD_MORPH_SFT(amthlout, &macro_amth_swap_main &macro_amth_swap_layout)
 
+
     // arc mod-morphs
     MOD_MORPH_SFT(arcnext, &macro_arc_next_tab &macro_arc_next_spc)
     MOD_MORPH_SFT(arcprev, &macro_arc_prev_tab &macro_arc_prev_spc)
+
 
     // auto-completion mod-morphs
     MOD_MORPH_SFT(auto_sqt_dqt, &tap_auto_sqt &tap_auto_dqt)
