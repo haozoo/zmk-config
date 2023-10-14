@@ -27,8 +27,8 @@
     MOD_MORPH_SFT(snipping, &macro_mac_st &macro_arc_st)
 
     // mod-enabled tap dances
-    TAP_DANCE(clipboard, &kp C &kp LS(LA(LG(C))))
-    MOD_MORPH_ALL(clipboard, &kp C &tap_clipboard, MOD_LGUI|MOD_RGUI, MOD_LGUI|MOD_RGUI)
+    TAP_DANCE(clipboard, &kp B &kp A)
+    MOD_MORPH(clipboard, &kp C &tap_clipboard, MOD_LGUI|MOD_RGUI)
 
     // navigation tap dances
     TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT &kp C_PREVIOUS)
