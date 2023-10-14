@@ -25,7 +25,7 @@
     // general mod-morphs
     MOD_MORPH_SFT(gresc, &kp ESC &kp GRAVE)
     MOD_MORPH_SFT(rhsthumb, &lt NAV BSPC &lt NAV LA(BSPC))
-    MOD_MORPH_SFT_CONT(snipping, &macro_mac_st &macro_arc_st, MOD_LSFT|MOD_RSFT, MOD_LSFT|MOD_RSFT)
+    MOD_MORPH_SFT_CONT(snipping, &macro_mac_st &macro_arc_st)
     
 
     // mod-enabled tap dances
