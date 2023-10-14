@@ -11,8 +11,8 @@
 #define NAV 3
 
 // MEH & HYPER keys
-#define MEH LS(LC(LALT))
-#define HYP LS(LC(LA(LGUI)))
+#define MEH(KP) LS(LC(LA(KP)))
+#define HYP(KP) LS(LC(LA(LG(KP))))
 
 // stringify macro
 #define str(s) #s
