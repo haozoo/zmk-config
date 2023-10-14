@@ -16,7 +16,6 @@
   };
 
 #define MOD_MORPH_SFT(NAME, BINDINGS) MOD_MORPH(NAME, BINDINGS, MOD_LSFT|MOD_RSFT)
-// #define MOD_MORPH_HYP(NAME, BINDINGS) MOD_MORPH(NAME, BINDINGS, MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)
 
 / {
   behaviors {
@@ -26,7 +25,7 @@
     MOD_MORPH_SFT(snipping, &macro_mac_st &macro_arc_st)
 
     // mod-enabled tap dances
-    TAP_DANCE(clipboard, &kp LG(C) &kp LS(LC(LA(LG(C)))))
+    TAP_DANCE(clipboard, &kp A &kp B)
     MOD_MORPH(clipboard, &kp C &tap_clipboard, MOD_LGUI|MOD_RGUI)
 
     // navigation tap dances
