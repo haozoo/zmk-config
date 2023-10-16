@@ -13,7 +13,7 @@
 // MEH & HYPER keys
 #define HYPER LS(LC(LA(LGUI)))
 #define HYP(key) LS(LC(LA(LG(key))))
-#define MEH(KP) LS(LC(LA(KP)))
+#define MEH(key) LS(LC(LA(key)))
 
 // stringify macro
 #define str(s) #s

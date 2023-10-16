@@ -18,5 +18,6 @@
   combos {
     compatible = "zmk,combos";
     COMBO(alfred, &macro_alfred, 38 39, BASE)
+    COMBO(wooshy, &kp HYP(W), 29 30 38 39, BASE)
   };
 };
