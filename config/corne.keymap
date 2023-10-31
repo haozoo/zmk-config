@@ -38,7 +38,7 @@
       bindings = <
         &trans &none &none &none &tap_media &morph_amthlout         &tap_navup &kp LA(LEFT) &kp UP &kp LA(RIGHT) &none &kp DEL 
         &trans &none &none &none &kp C_VOL_UP &morph_amthrhs        &tap_navdn &kp LEFT &kp DOWN &kp RIGHT &none &none
-        &trans &none &none &none &kp C_VOL_DN &none &morph_amthlhs  &none &none &none &none &none &trans
+        &trans &none &none &none &kp C_VOL_DN &morph_amthlhs        &none &none &none &none &none &trans
         &trans &trans &trans                                        &trans &trans &trans
       >;
     };
