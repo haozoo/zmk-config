@@ -35,7 +35,7 @@
 
     // navigation tap dances
     TAP_DANCE(media, &kp C_PLAY_PAUSE &kp C_NEXT &kp C_PREVIOUS)
-    TAP_DANCE(bluet, &kp &bt BT_NXT &bt BT_CLR)
+    TAP_DANCE(blue, &kp &bt BT_NXT &bt BT_CLR)
     TAP_DANCE(navdn, &kp PG_DN &kp END)
     TAP_DANCE(navup, &kp PG_UP &kp HOME)
     
