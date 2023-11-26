@@ -23,7 +23,7 @@
         &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
         &trans &morph_snipping &morph_arcprev &morph_nav1 &morph_nav2 &morph_nav3   &none &none &none &kp BSLH &kp MINUS &kp EQUAL
         &trans &morph_amthlout &morph_arcnext &morph_nav4 &morph_nav5 &morph_nav6   &none &none &kp COMMA &kp DOT &kp FSLH &trans
-        &trans &trans &trans                                                        &mo NUMP &trans &trans
+        &trans &trans &trans                                                        &kp BSPC &trans &trans
       >;  
     };
     symbols {
@@ -36,10 +36,10 @@
     };
     movement {
       bindings = <
-        &trans &none &none &none &tap_media &morph_amthlout         &tap_navup &kp LA(LEFT) &kp UP &kp LA(RIGHT) &none &kp DEL 
-        &trans &none &none &none &kp C_VOL_UP &morph_amthrhs        &tap_navdn &kp LEFT &kp DOWN &kp RIGHT &none &none
-        &trans &none &none &none &kp C_VOL_DN &morph_amthlhs        &none &none &none &none &none &trans
-        &trans &trans &trans                                        &trans &trans &trans
+        &trans &none &none &none &tap_media &morph_amthlout       &tap_navup &kp LA(LEFT) &kp UP &kp LA(RIGHT) &none &kp DEL 
+        &trans &none &none &none &kp C_VOL_UP &morph_amthrhs      &tap_navdn &kp LEFT &kp DOWN &kp RIGHT &none &none
+        &kp LSFT &none &none &none &kp C_VOL_DN &morph_amthlhs    &none &none &none &none &none &trans
+        &trans &trans &trans                                      &trans &trans &trans
       >;
     };
     numpad {
