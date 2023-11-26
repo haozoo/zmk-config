@@ -39,12 +39,12 @@
     TAP_DANCE(navdn, &kp PG_DN &kp END)
     TAP_DANCE(navup, &kp PG_UP &kp HOME)
 
-    TAP_DANCE(nav1, &macro_arc_nav1 &macro_auto_arc_nav1)
-    TAP_DANCE(nav2, &macro_arc_nav2 &macro_auto_arc_nav2)
-    TAP_DANCE(nav3, &macro_arc_nav3 &macro_auto_arc_nav3)
-    TAP_DANCE(nav4, &macro_arc_nav4 &macro_auto_arc_nav4)
-    TAP_DANCE(nav5, &macro_arc_nav5 &macro_auto_arc_nav5)  
-    TAP_DANCE(nav6, &macro_arc_nav6 &macro_auto_arc_nav6)
+    TAP_DANCE(auto_nav1, &macro_arc_nav1 &macro_auto_arc_nav1)
+    TAP_DANCE(auto_nav2, &macro_arc_nav2 &macro_auto_arc_nav2)
+    TAP_DANCE(auto_nav3, &macro_arc_nav3 &macro_auto_arc_nav3)
+    TAP_DANCE(auto_nav4, &macro_arc_nav4 &macro_auto_arc_nav4)
+    TAP_DANCE(auto_nav5, &macro_arc_nav5 &macro_auto_arc_nav5)  
+    TAP_DANCE(auto_nav6, &macro_arc_nav6 &macro_auto_arc_nav6)
 
     // navigation mod-morphs
     MOD_MORPH_SFT_CONT(nav1, &tap_auto_nav1 &kp HYP(N1))
