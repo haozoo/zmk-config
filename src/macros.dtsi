@@ -33,7 +33,7 @@
       label = str(macro_##NAME); \
       compatible = "zmk,behavior-macro"; \
       #binding-cells = <0>; \
-      bindings = <&macro_tap HYP(N1)> \
+      bindings = <&macro_tap &kp HYP(N1)> \
                , <&macro_press &kp LGUI> \
                , <&macro_tap BINDINGS> \
                , <&macro_release &kp LGUI> \
