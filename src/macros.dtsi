@@ -28,7 +28,7 @@
                ; \
   };
 
-#define MACRO_MOD_AUTO_NAV(NAME, BINDINGS) \
+#define MACRO_NAV(NAME, BINDINGS) \
   macro_##NAME: macro_##NAME { \
       label = str(macro_##NAME); \
       compatible = "zmk,behavior-macro"; \
@@ -68,12 +68,12 @@
     MACRO_MOD(arc_nav5, &kp N5, &kp LGUI)
     MACRO_MOD(arc_nav6, &kp N6, &kp LGUI)
 
-    MACRO_MOD_AUTO_NAV(auto_arc_nav1, &kp N1)
-    MACRO_MOD_AUTO_NAV(auto_arc_nav2, &kp N2)
-    MACRO_MOD_AUTO_NAV(auto_arc_nav3, &kp N3)
-    MACRO_MOD_AUTO_NAV(auto_arc_nav4, &kp N4)
-    MACRO_MOD_AUTO_NAV(auto_arc_nav5, &kp N5)
-    MACRO_MOD_AUTO_NAV(auto_arc_nav6, &kp N6)
+    MACRO_NAV(auto_arc_nav1, &kp N1)
+    MACRO_NAV(auto_arc_nav2, &kp N2)
+    MACRO_NAV(auto_arc_nav3, &kp N3)
+    MACRO_NAV(auto_arc_nav4, &kp N4)
+    MACRO_NAV(auto_arc_nav5, &kp N5)
+    MACRO_NAV(auto_arc_nav6, &kp N6)
 
     // amethyst: ctrl + alt
     MACRO_MOD_AMETHYST(amth_swap_cw, &kp RIGHT)
